@@ -21,7 +21,7 @@ const $         = jquery(global.window);  // Connect our jquery to our 'window'
 
 // Render a React component for testing
 
-export function renderComponent(ComponentClass, props = {}, state = {}) {
+function renderComponent(ComponentClass, props = {}, state = {}) {
   const instance = TestUtils.renderIntoDocument(
     <Provider store={createStore(reducers, state)}>
       <ComponentClass {...props} />
@@ -48,4 +48,4 @@ chaiJquery(chai, chai.util, $);
 
 // Export(s)
 
-export { expect };
+export { renderComponent, expect };
