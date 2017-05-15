@@ -12,14 +12,15 @@ import chaiJquery         from 'chai-jquery';
 
 import reducers           from '../src/reducers';
 
-// Set up testing environment to run like a browser from the command line
+// Set up testing environment to run like a browser from the command line.
+// global stands in for the browser and holds the global document and window.
 
 global.document = jsdom.jsdom('<!DOCTYPE html><html><body></body></html>');
 global.window   = global.document.defaultView;
 
-const $         = jquery(global.window);  // Connect our jquery to our 'window'
+const $         = jquery(global.window);  // Connect our jQuery to our 'window'
 
-// Render a React component for testing
+// Render a React component for testing and return it wrapped in jQuery.
 
 function renderComponent(ComponentClass, props = {}, state = {}) {
   const instance = TestUtils.renderIntoDocument(
@@ -28,14 +29,14 @@ function renderComponent(ComponentClass, props = {}, state = {}) {
     </Provider>
   );
 
-  // Return a jquery wrapped set of HTML.
+  // Return a jQuery wrapped set of HTML.
   return $(ReactDOM.findDOMNode(instance));
 }
 
-// Simulate an event on a jquery element
+// Simulate an event on a jQuery element
 
 $.fn.simulate = function(eventName, value) {
-  if(value) {
+  if (value) {
     this.val(value);
   }
 
@@ -46,6 +47,6 @@ $.fn.simulate = function(eventName, value) {
 
 chaiJquery(chai, chai.util, $);
 
-// Export(s)
+// Exports
 
 export { renderComponent, expect };
