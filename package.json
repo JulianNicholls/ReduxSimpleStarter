@@ -29,7 +29,7 @@
     "chai-jquery": "^2.0.0",
     "eslint": "^3.19.0",
     "eslint-plugin-react": "^7.0.1",
-    "jquery": "^2.2.1",
+    "jquery": "^3.5.1",
     "jsdom": "^8.1.0",
     "mocha": "*",
     "react-addons-test-utils": "^0.14.7",
